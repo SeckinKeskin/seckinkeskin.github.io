@@ -1,0 +1,450 @@
+/* Hide header and footer completely */
+.site-header {
+  display: none;
+}
+
+.site-footer {
+  display: none;
+}
+
+/* Import Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Tiny5&display=swap');
+
+:root {
+  --primary-color: #0066cc;
+  --accent-color: #ff6b6b;
+  --text-dark: #2c3e50;
+  --text-light: #7f8c8d;
+  --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+body {
+  font-family: 'Tiny5', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  background: 
+    /* CRT Pixel grid pattern */
+    repeating-linear-gradient(
+      0deg,
+      rgba(0, 0, 0, 0.03) 0px,
+      rgba(0, 0, 0, 0.03) 1px,
+      transparent 1px,
+      transparent 2px
+    ),
+    repeating-linear-gradient(
+      90deg,
+      rgba(0, 0, 0, 0.03) 0px,
+      rgba(0, 0, 0, 0.03) 1px,
+      transparent 1px,
+      transparent 2px
+    ),
+    /* Radial gradient from center */
+    radial-gradient(
+      circle at 50% 50%,
+      #7300FF 0%,
+      #6D00F1 25%,
+      #5200B5 50%,
+      #3F008B 75%,
+      #23004D 100%
+    );
+  background-attachment: fixed;
+  color: var(--text-dark);
+  position: relative;
+}
+
+/* CRT scanline effect */
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  background: 
+    repeating-linear-gradient(
+      0deg,
+      rgba(0, 0, 0, 0.08),
+      rgba(0, 0, 0, 0.08) 2px,
+      transparent 2px,
+      transparent 4px
+    );
+  z-index: 1;
+}
+
+/* CRT vignette effect */
+body::after {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  background: 
+    radial-gradient(
+      ellipse at center,
+      rgba(255, 255, 255, 0) 0%,
+      rgba(0, 0, 0, 0.3) 100%
+    );
+  z-index: 1;
+}
+
+/* Main Landing Container */
+.wip-landing {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  padding: 20px;
+  z-index: 2;
+}
+
+.wip-content {
+  position: relative;
+  z-index: 10;
+  text-align: center;
+  max-width: 600px;
+  animation: fadeInUp 0.8s ease-out;
+}
+
+/* WIP Visual Section */
+.wip-visual {
+  margin-bottom: 60px;
+  animation: bounceIn 1s ease-out;
+}
+
+.wip-icon {
+  margin-bottom: 20px;
+  display: inline-block;
+  width: 150px;
+  height: 150px;
+  
+  img.duck-icon {
+    width: 100%;
+    height: 100%;
+    animation: bounce 2s ease-in-out infinite;
+  }
+}
+
+.wip-title {
+  font-size: clamp(2.5rem, 8vw, 3.5rem);
+  font-weight: 800;
+  color: white;
+  margin-bottom: 15px;
+  letter-spacing: -1px;
+  text-shadow: 3px 3px 0px rgba(0, 0, 0, 0.5), 6px 6px 0px rgba(0, 0, 0, 0.3);
+}
+
+.wip-subtitle {
+  font-size: clamp(1.2rem, 4vw, 1.5rem);
+  color: rgba(255, 255, 255, 0.95);
+  margin-bottom: 20px;
+  font-weight: 500;
+  text-shadow: 2px 2px 0px rgba(0, 0, 0, 0.4), 4px 4px 0px rgba(0, 0, 0, 0.2);
+}
+
+.wip-description {
+  font-size: 1.1rem;
+  color: rgba(255, 255, 255, 0.85);
+  line-height: 1.6;
+  margin-bottom: 0;
+  text-shadow: 2px 2px 0px rgba(0, 0, 0, 0.4), 4px 4px 0px rgba(0, 0, 0, 0.2);
+}
+
+/* Contact Section */
+.contact-section {
+  background: rgba(255, 255, 255, 0.95);
+  padding: 40px 30px;
+  border-radius: 16px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(10px);
+  animation: slideUp 0.8s ease-out 0.2s backwards;
+}
+
+.contact-section h2 {
+  font-size: 1.3rem;
+  color: var(--text-dark);
+  margin-bottom: 30px;
+  font-weight: 600;
+  text-shadow: 2px 2px 0px rgba(0, 0, 0, 0.15);
+}
+
+.contact-links {
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.contact-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 24px;
+  background: linear-gradient(135deg, #1AE2C0 0%, #15b8a8 100%);
+  color: white;
+  text-decoration: none;
+  border-radius: 8px;
+  font-weight: 600;
+  transition: var(--transition);
+  border: 2px solid transparent;
+  cursor: pointer;
+  font-size: 0.95rem;
+}
+
+.contact-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 25px rgba(26, 226, 192, 0.4);
+  background: linear-gradient(135deg, #15b8a8 0%, #0f9a8f 100%);
+}
+
+.contact-btn:active {
+  transform: translateY(-1px);
+}
+
+.contact-btn .icon {
+  font-size: 1.3em;
+}
+
+.contact-btn .contact-icon {
+  width: 24px;
+  height: 24px;
+  object-fit: contain;
+}
+
+.contact-btn .text {
+  font-size: 0.9rem;
+}
+
+/* Background Decorations - Static Radial Pattern */
+.background-decoration {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  pointer-events: none;
+  overflow: hidden;
+  background: 
+    radial-gradient(circle at 50% 50%, rgba(0, 212, 255, 0.15) 0%, transparent 25%),
+    radial-gradient(circle at 50% 50%, rgba(0, 184, 148, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 50% 50%, rgba(9, 132, 227, 0.08) 0%, transparent 75%),
+    radial-gradient(ellipse at center, transparent 0%, rgba(0, 0, 0, 0.4) 100%);
+}
+
+/* Animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes bounceIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.3) translateY(30px);
+  }
+  50% {
+    opacity: 1;
+  }
+  70% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1) translateY(0);
+  }
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .wip-landing {
+    padding: 20px;
+  }
+
+  .wip-content {
+    max-width: 100%;
+  }
+
+  .wip-visual {
+    margin-bottom: 40px;
+  }
+
+  .wip-icon {
+    width: 120px;
+    height: 120px;
+    margin-bottom: 15px;
+  }
+
+  .wip-title {
+    font-size: clamp(2rem, 6vw, 2.5rem);
+  }
+
+  .wip-subtitle {
+    font-size: clamp(1rem, 3vw, 1.2rem);
+  }
+
+  .wip-description {
+    font-size: 1rem;
+  }
+
+  .contact-section {
+    padding: 30px 20px;
+  }
+
+  .contact-section h2 {
+    font-size: 1.1rem;
+    margin-bottom: 20px;
+  }
+
+  .contact-links {
+    gap: 10px;
+  }
+
+  .contact-btn {
+    padding: 10px 20px;
+    font-size: 0.9rem;
+    flex: 1;
+    min-width: 100px;
+  }
+
+  .orb-1 {
+    width: 250px;
+    height: 250px;
+  }
+
+  .orb-2 {
+    width: 200px;
+    height: 200px;
+  }
+
+  .orb-3 {
+    width: 150px;
+    height: 150px;
+  }
+}
+
+@media (max-width: 480px) {
+  body {
+    overflow-y: auto;
+  }
+
+  .wip-landing {
+    min-height: 100vh;
+    padding: 40px 20px;
+  }
+
+  .wip-icon {
+    width: 90px;
+    height: 90px;
+    margin-bottom: 10px;
+  }
+
+  .wip-title {
+    font-size: clamp(1.8rem, 5vw, 2.2rem);
+    margin-bottom: 10px;
+  }
+
+  .wip-subtitle {
+    font-size: clamp(0.95rem, 2.5vw, 1.1rem);
+    margin-bottom: 15px;
+  }
+
+  .wip-description {
+    font-size: 0.95rem;
+    line-height: 1.5;
+    margin-bottom: 30px;
+  }
+
+  .contact-section {
+    padding: 25px 15px;
+    border-radius: 12px;
+  }
+
+  .contact-section h2 {
+    font-size: 1rem;
+    margin-bottom: 15px;
+  }
+
+  .contact-links {
+    gap: 8px;
+    flex-direction: column;
+  }
+
+  .contact-btn {
+    width: 100%;
+    justify-content: center;
+    padding: 12px 16px;
+  }
+
+  .orb {
+    display: none;
+  }
+}
+
+/* Light mode preference */
+@media (prefers-color-scheme: light) {
+  body {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  }
+}
+
+/* Smooth scrolling on mobile if content overflows */
+@media (max-height: 768px) {
+  html {
+    overflow-y: auto;
+  }
+
+  .wip-landing {
+    min-height: 100vh;
+  }
+}
+
