@@ -22,7 +22,7 @@ title: Seçkin Keskin | Developer Portfolio
 email: keskinseckin@gmail.com
 description: >- # this means to ignore newlines until "baseurl:"
   Work in progress portfolio. Coming soon!
-baseurl: "/git-portfolio-site" # the subpath of your site, e.g. /blog
+baseurl: "" # the subpath of your site, e.g. /blog
 url: "https://seckinkeskin.github.io" # the base hostname & protocol for your site, e.g. http://example.com
 twitter_username: seckinkesking
 github_username: SeckinKeskin
